@@ -38,6 +38,12 @@
   margin-right: 1rem;
 }
 
+.custom-divider {
+  border-top: 2px solid #6e6a6d;
+  opacity: 1;
+  margin: 8px 0;
+}
+
 @media (max-width: 767px) {
   .cart-container {
     justify-content: center !important;

@@ -24,14 +24,15 @@ const NavbarComponent = () => {
           {/* Menú centrado */}
           <Nav className="mx-auto text-center gap-4">
             <Nav.Link href="/">Inicio</Nav.Link>
-
              <NavDropdown title="Productos" id="productos-dropdown" menuVariant="dark">
               <NavDropdown.Item href="#tazas">Tazas</NavDropdown.Item>
+              <NavDropdown.Divider className="custom-divider"/>
               <NavDropdown.Item href="#remeras">Remeras</NavDropdown.Item>
+              <NavDropdown.Divider className="custom-divider"/>
               <NavDropdown.Item href="#gorras">Gorras</NavDropdown.Item>
+              <NavDropdown.Divider className="custom-divider"/>
               <NavDropdown.Item href="#sweaters">Sweaters</NavDropdown.Item>
             </NavDropdown>
-
             <Nav.Link href="#sobremi">Nosotros</Nav.Link>
             <Nav.Link href="#contacto">Contacto</Nav.Link>
           </Nav>
