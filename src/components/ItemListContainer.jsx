@@ -26,10 +26,10 @@ const ItemListContainer = ({message}) => {
 
   return (
     <div>
-        <h1 style={{color:'#cf51a5ff', fontSize:'60px', fontWeight:'bold', textShadow: '1px 1px 2px #EC6EAD'}} className='text-center my-4'>{message} 
+        <h1 style={{color:'#cf51a5ff', fontSize:'60px', fontWeight:'bold', textShadow: '1px 1px 2px #EC6EAD', fontFamily: '"Sansita", sans-serif'}} className='text-center my-4'>{message} 
         {
         categoryId && 
-        <span style={{textTransform:'capitalize', color:'#cf51a5ff'}}>
+        <span style={{textTransform:'capitalize', color:'#cf51a5ff', fontFamily: '"Sansita", sans-serif'}}>
             {categoryId}
         </span>
         }

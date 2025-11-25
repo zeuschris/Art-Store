@@ -19,7 +19,7 @@ const Error = () => {
             Parece que la página que buscas no existe o se ha movido.
           </p>
 
-          <Button as={Link} to="/" variant="outline-dark" size="lg">
+          <Button as={Link} to="/" variant="dark" size="lg">
             Volver al inicio
           </Button>
 

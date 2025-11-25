@@ -7,7 +7,7 @@ export const Item = ({product}) => {
     <Card style={{ width: '35rem', marginBottom: '50px' }} className='card-item'>
       <Card.Img variant="top" src={product.image} alt={product.name}/>
       <Card.Body style={{margin:'10px'}}>
-        <Card.Title style={{textShadow: '1px 1px 1px #fff'}}>{product.name}</Card.Title>
+        <Card.Title style={{fontFamily:'Sansita', fontSize:'25px'}}>{product.name}</Card.Title>
         <Card.Text style={{fontSize:'30px', marginTop:'40px'}}>$ {product.price}</Card.Text>
       </Card.Body>
       <Card.Footer className='card-footer'>

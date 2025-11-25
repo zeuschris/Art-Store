@@ -9,7 +9,7 @@ const Nosotros = () => {
         <Col md={6} className="text-center text-md-start mb-4 mb-md-0">
 
           
-          <h1 style={{color:'#cf51a5ff', fontSize:'60px', fontWeight:'bold', textShadow: '1px 1px 2px #EC6EAD'}} className="display-4 fw-bold mb-3">
+          <h1 style={{color:'#cf51a5ff', fontSize:'60px', fontWeight:'bold', textShadow: '1px 1px 2px #EC6EAD', fontFamily: '"Sansita", sans-serif'}} className="display-4 fw-bold mb-3">
             Nuestra Historia
           </h1>
           
