@@ -1,0 +1,32 @@
+  .btn-grad {background-image: linear-gradient(to right, #3494E6 0%, #EC6EAD  51%, #3494E6  100%)}
+    .btn-grad {
+    margin: 10px;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 10px;
+    border:none;
+    display: block;
+    &:hover{
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.card-item {
+  background: #485563;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color:#fff;
+  border: none;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
