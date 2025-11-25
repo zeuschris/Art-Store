@@ -179,6 +179,15 @@ const products = [
         price: '60.000',
         stock: 22,
     },
+    {
+        id: '21',
+        name: 'Gorra Gucci Original',
+        description: 'Gorra Gucci blanca con diseño lujoso.',
+        image: '/img/image-21.png',
+        category: 'gorras',
+        price: '311.999',
+        stock: 2,
+    },
 ]   
 
 let error = false
