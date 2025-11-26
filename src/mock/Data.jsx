@@ -3,7 +3,11 @@ const products = [
         id: '1',
         name: 'Taza con diseño de gato',
         description: 'Taza blanca con un colorido diseño de gato.',
-        image: '/img/image-1.png',
+        images: [
+            '/img/product-1/image-1.png',
+            '/img/product-1/image-2.png',
+            '/img/product-1/image-3.png'
+        ],
         category: 'tazas',
         price: '7.900',
         stock: 10,
@@ -12,7 +16,11 @@ const products = [
         id: '2',
         name: 'Taza de bosques y carretera', 
         description: 'Taza con diseño de un bosque y carretera al atardecer.',
-        image: '/img/image-2.png',
+        images: [
+            '/img/product-2/image-1.png',
+            '/img/product-2/image-2.png',
+            '/img/product-2/image-3.png'
+        ],
         category: 'tazas',
         price: '8.500',
         stock: 15,
@@ -21,7 +29,11 @@ const products = [
         id: '3',
         name: 'Taza de arboles y atardecer', 
         description: 'Taza con diseño de árboles y atardecer.',
-        image: '/img/image-3.png',
+        images: [
+            '/img/product-3/image-1.png',
+            '/img/product-3/image-2.png',
+            '/img/product-3/image-3.png'
+        ],
         category: 'tazas',
         price: '9.200',
         stock: 7,
@@ -30,7 +42,11 @@ const products = [
         id: '4',
         name: 'Taza de la playa', 
         description: 'Taza con diseño de una playa paradisíaca.',
-        image: '/img/image-4.png',
+        images: [
+            '/img/product-4/image-1.png',
+            '/img/product-4/image-2.png',
+            '/img/product-4/image-3.png'
+        ],
         category: 'tazas',
         price: '9.800',
         stock: 9,
@@ -39,7 +55,11 @@ const products = [
         id: '5',
         name: 'Taza de krishna', 
         description: 'Taza con diseño del iluminado Krishna.',
-        image: '/img/image-5.png',
+        images: [
+            '/img/product-5/image-1.png',   
+            '/img/product-5/image-2.png',
+            '/img/product-5/image-3.png'
+        ],
         category: 'tazas',
         price: '10.255',
         stock: 11,
@@ -48,7 +68,11 @@ const products = [
         id: '6',
         name: 'Taza de gato negro', 
         description: 'Taza con diseño de gato negro y ojos.',
-        image: '/img/image-6.png',
+        images: [
+            '/img/product-6/image-1.png',
+            '/img/product-6/image-2.png',
+            '/img/product-6/image-3.png'
+        ],
         category: 'tazas',
         price: '9.900',
         stock: 6,
@@ -57,7 +81,11 @@ const products = [
         id: '7',
         name: 'Remera Arte Pop',
         description: 'Remera con estampado de arte pop colorido.',
-        image: '/img/image-7.png',
+        images: [
+            '/img/product-7/image-1.png',
+            '/img/product-7/image-2.png',
+            '/img/product-7/image-3.png',
+        ],
         category: 'remeras',
         price: '25.500',
         stock: 20,
@@ -66,7 +94,11 @@ const products = [
         id: '8',
         name: 'Remera de britney',
         description: 'Remera con diseño de Britney Spears icónica.',
-        image: '/img/image-8.png',
+        images: [
+            '/img/product-8/image-1.png',
+            '/img/product-8/image-2.png',
+            '/img/product-8/image-3.png'
+        ],
         category: 'remeras',
         price: '26.999',
         stock: 15,
@@ -75,7 +107,11 @@ const products = [
         id: '9',
         name: 'Remera vans vintage',
         description: 'Remera con logo vintage de la marca Vans.',
-        image: '/img/image-9.png',
+        images: [
+            '/img/product-9/image-1.png',
+            '/img/product-9/image-2.png',
+            '/img/product-9/image-3.png'
+        ],
         category: 'remeras',
         price: '24.000',
         stock: 12,
@@ -84,7 +120,11 @@ const products = [
         id: '10',
         name: 'Gorra Nike Blanca',
         description: 'Gorra blanca de la marca Nike con logo bordado.',
-        image: '/img/image-10.png',
+        images: [
+            '/img/product-10/image-1.png',
+            '/img/product-10/image-2.png',
+            '/img/product-10/image-3.png'
+        ],
         category: 'gorras',
         price: '15.750',
         stock: 8,
@@ -93,7 +133,11 @@ const products = [
         id: '11',
         name: 'Gorra Adidas Negra', 
         description: 'Gorra negra de la marca Adidas con diseño clásico.',
-        image: '/img/image-11.png',
+        images: [
+            '/img/product-11/image-1.png',
+            '/img/product-11/image-2.png',
+            '/img/product-11/image-3.png'
+        ],
         category: 'gorras', 
         price: '16.000',
         stock: 5,
@@ -102,7 +146,11 @@ const products = [
         id: '12',
         name: 'Gorra Quick Silver Azul', 
         description: 'Gorra azul de la marca Quick Silver con estilo moderno.',
-        image: '/img/image-12.png',
+        images: [
+            '/img/product-12/image-1.png',
+            '/img/product-12/image-2.png',
+            '/img/product-12/image-3.png'
+        ],
         category: 'gorras', 
         price: '17.000',
         stock: 10,
@@ -111,7 +159,11 @@ const products = [
         id: '13',
         name: 'Gorra Lacoste Verde', 
         description: 'Gorra verde de la marca Lacoste con logo distintivo.',
-        image: '/img/image-13.png',
+        images: [
+            '/img/product-13/image-1.png',
+            '/img/product-13/image-2.png',
+            '/img/product-13/image-3.png'
+        ],
         category: 'gorras', 
         price: '68.000',
         stock: 4,
@@ -120,7 +172,11 @@ const products = [
         id: '14',
         name: 'Gorra Polo Ralph Lauren Blanca',
         description: 'Gorra blanca de la marca Polo Ralph Lauren con diseño elegante.',
-        image: '/img/image-14.png',
+        images: [
+            '/img/product-14/image-1.png',
+            '/img/product-14/image-2.png',
+            '/img/product-14/image-3.png'
+        ],
         category: 'gorras',
         price: '72.000',
         stock: 31,
@@ -129,7 +185,11 @@ const products = [
         id: '15',
         name: 'Sweater personalizado programación',
         description: 'Sweater con diseño personalizado relacionado con programación.',
-        image: '/img/image-15.png',
+        images: [
+            '/img/product-15/image-1.png',
+            '/img/product-15/image-2.png',
+            '/img/product-15/image-3.png'
+        ],
         category: 'sweaters',
         price: '40.999',
         stock: 7,
@@ -138,7 +198,11 @@ const products = [
         id: '16',
         name: 'Sweater arte digital',
         description: 'Sweater con diseño de arte digital colorido.',
-        image: '/img/image-16.png',
+        images: [
+            '/img/product-16/image-1.png',
+            '/img/product-16/image-2.png',
+            '/img/product-16/image-3.png'
+        ],
         category: 'sweaters',
         price: '42.000',
         stock: 9,
@@ -147,7 +211,11 @@ const products = [
         id: '17',
         name: 'Sweater Logo Nasa',
         description: 'Sweater con el logo de la Nasa estampado.',
-        image: '/img/image-17.png',
+        images: [
+            '/img/product-17/image-1.png',
+            '/img/product-17/image-2.png',
+            '/img/product-17/image-3.png'
+        ],
         category: 'sweaters',
         price: '39.599',
         stock: 30,
@@ -156,7 +224,11 @@ const products = [
         id: '18',
         name: 'Sweater Planetas',
         description: 'Sweater con diseño de planetas del sistema solar.',
-        image: '/img/image-18.png',
+        images: [
+            '/img/product-18/image-1.png',
+            '/img/product-18/image-2.png',
+            '/img/product-18/image-3.png'
+        ],
         category: 'sweaters',
         price: '41.000',
         stock: 5,
@@ -165,7 +237,11 @@ const products = [
         id: '19',
         name: 'Sweater Lacoste Blanco',
         description: 'Sweater blanco con logo de Lacoste bordado.',
-        image: '/img/image-19.png',
+        images: [
+            '/img/product-19/image-1.png',
+            '/img/product-19/image-2.png',
+            '/img/product-19/image-3.png'
+        ],
         category: 'sweaters',
         price: '55.769',
         stock: 2,
@@ -174,16 +250,24 @@ const products = [
         id: '20',
         name: 'Sweater Polo Club',
         description: 'Sweater con diseño de Polo Club elegante.',
-        image: '/img/image-20.png',
+        images: [
+            '/img/product-20/image-1.png',
+            '/img/product-20/image-2.png',
+            '/img/product-20/image-3.png'
+        ],
         category: 'sweaters',
         price: '60.000',
         stock: 22,
     },
-    {
+    { 
         id: '21',
         name: 'Gorra Gucci Original',
         description: 'Gorra Gucci blanca con diseño lujoso.',
-        image: '/img/image-21.png',
+        images: [
+            '/img/product-21/image-1.png',
+            '/img/product-21/image-2.png',
+            '/img/product-21/image-3.png'
+        ],
         category: 'gorras',
         price: '311.999',
         stock: 2,

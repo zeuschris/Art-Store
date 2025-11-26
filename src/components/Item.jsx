@@ -5,7 +5,7 @@ import '../styles/Item.css';
 export const Item = ({product}) => {
   return (
     <Card style={{ width: '35rem', marginBottom: '50px' }} className='card-item'>
-      <Card.Img variant="top" src={product.image} alt={product.name}/>
+      <Card.Img variant="top" src={product.images[0]} alt={product.name}/>
       <Card.Body style={{margin:'10px'}}>
         <Card.Title style={{fontFamily:'Sansita', fontSize:'25px'}}>{product.name}</Card.Title>
         <Card.Text style={{fontSize:'30px', marginTop:'40px'}}>$ {product.price}</Card.Text>
