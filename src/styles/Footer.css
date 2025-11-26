@@ -1,0 +1,12 @@
+.btn-floating:hover {
+  color: #cccccc !important; 
+  transition: all 0.3s ease-in-out;
+}
+
+a.text-white:hover {
+  color: #cccccc !important;
+}
+
+.font-weight-bold {
+  font-weight: 700; 
+}

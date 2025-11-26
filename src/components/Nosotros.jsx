@@ -30,7 +30,7 @@ const Nosotros = () => {
         <Col md={6}>
           
           <Image
-            src="../public/nosotros.png"
+            src="/nosotros.png"
             alt="Imagen de nuestro equipo colaborando"
             fluid 
             rounded 

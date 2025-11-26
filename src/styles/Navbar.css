@@ -1,6 +1,5 @@
 .custom-navbar {
-background: #634c56;
-background: radial-gradient(circle, rgba(99, 76, 86, 1) 0%, rgba(26, 20, 133, 1) 100%);
+background: rgb(33 37 41);
   user-select: none;
 }
 

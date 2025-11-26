@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
+import Footer from './components/Footer';
 import Error from './components/Error';
 
 
@@ -15,13 +16,14 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<ItemListContainer message={'Bienvenido a Art Store!'}/>}/>
+        <Route path='/' element={<ItemListContainer message={'Nuestros Productos'}/>}/>
         <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
         <Route path='/item/:itemId' element={<ItemDetailContainer/>}/>
         <Route path='/contacto' element={<Contacto/>}/>
         <Route path='/nosotros' element={<Nosotros/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

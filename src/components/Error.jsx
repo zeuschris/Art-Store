@@ -7,7 +7,7 @@ const Error = () => {
       <Row>
         <Col>
           <Image
-            src="../public/404.png" 
+            src="/404.png" 
             alt="Página no encontrada"
             fluid 
             className="mb-4" 
