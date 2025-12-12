@@ -1,11 +1,19 @@
+import { useEffect } from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 
 const Nosotros = () => {
+
+  useEffect(() => {
+          document.title = 'Art Store - Nosotros';
+          return () => {
+              document.title = 'Art Store - Productos Personalizados';
+          };
+      }, [])
+  
   return (
     <Container className="my-5 py-5">
       <Row className="justify-content-center align-items-center">
         
-        {/* Columna 1: Contenido de Texto */}
         <Col md={6} className="text-center text-md-start mb-4 mb-md-0">
 
           

@@ -1,16 +1,28 @@
-import React, { useState } from 'react'; 
-import ItemCount from './ItemCount';
+import { useState, useContext } from 'react'; 
 import { Container, Row, Col, Card, Carousel, Image, Modal, Button } from 'react-bootstrap'; 
+import { CartContext } from '../context/CartContext';
+import { Link } from 'react-router-dom';
+import ItemCount from './ItemCount';
 
 const ItemDetail = ({ detail }) => {
-  const [showModal, setShowModal] = useState(false); 
-  const [selectedImage, setSelectedImage] = useState(''); 
+  const [showModal, setShowModal] = useState(false)
+  const [selectedImage, setSelectedImage] = useState('')
+  const [purchase, setPurchase] = useState(false)
+  const { addItem, avaibleStock } = useContext(CartContext)
 
-  const handleCloseModal = () => setShowModal(false);
+  const handleCloseModal = () => setShowModal(false)
+  
   const handleShowModal = (imgSrc) => {
-    setSelectedImage(imgSrc);
-    setShowModal(true);
-  };
+    setSelectedImage(imgSrc)
+    setShowModal(true)
+  }
+
+  const onAdd = (cantidad) => {
+    addItem(detail, cantidad)
+    setPurchase(true)
+  }
+
+  const updatedStock = detail.stock - avaibleStock(detail.id)
 
   return (
     <Container className="my-5">
@@ -54,16 +66,25 @@ const ItemDetail = ({ detail }) => {
                     Precio: ${detail.price}
                   </Card.Text>
                   <Card.Text>
-                    Stock disponible: {detail.stock}
+                    Stock disponible: {updatedStock}
                   </Card.Text>
-                  <div className="mt-3">
-                    <ItemCount
-                      stock={detail.stock}
-                      onAdd={() => console.log('Agregado al carrito')} 
-                      buttonVariant="success"
-                      buttonText="Añadir al Carrito"
-                    />
+                  {
+                    purchase 
+                    
+                    ?
+                     <Link className = "btn btn-grad" to='/cart'> 
+                        Ver el carrito
+                     </Link> 
+                    : 
+                    <div className="mt-3">
+                      <ItemCount
+                        stock={updatedStock}
+                        onAdd={onAdd}
+                        buttonVariant="success"
+                        buttonText="Añadir al Carrito"
+                      />
                   </div>
+                  }
                 </Card.Body>
               </Col>
             </Row>

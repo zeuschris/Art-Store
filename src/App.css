@@ -1,0 +1,44 @@
+.Toastify__toast {
+  background: linear-gradient(to right, #29323c, #485563) !important;   
+  color: white !important; 
+  border-radius: 8px; 
+}
+
+.Toastify__toast--success {
+  background-color: #1a1a1a !important; 
+}
+
+.Toastify__toast-icon > svg {
+  fill: #4CAF50 !important; 
+}
+
+.Toastify__progress-bar {
+  background-image: linear-gradient(to right, #3494E6 0%, #EC6EAD 51%, #3494E6 100%) !important;
+}
+
+dark-mode-alert .swal2-popup {
+  background: linear-gradient(135deg, #2C3E7C, #5D2F8F) !important; 
+  color: #ecf0f1 !important; 
+  border: none !important; 
+}
+
+.dark-mode-alert .swal2-icon.swal2-warning {
+  border-color: #36A0D5 !important; 
+  color: #36A0D5 !important; 
+}
+
+.dark-mode-alert .swal2-styled.swal2-confirm {
+  background-color: #3494E6 !important; 
+  color: #ffffff !important; 
+  border: none !important;
+  flex-grow: 1 !important; 
+  width: 49% !important; 
+}
+
+.dark-mode-alert .swal2-styled.swal2-cancel {
+  background-color: #EC6EAD !important; 
+  color: #ffffff !important; 
+  border: none !important;
+  flex-grow: 1 !important; 
+  width: 49% !important; 
+}

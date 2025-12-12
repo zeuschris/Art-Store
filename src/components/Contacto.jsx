@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
 const Contact = () => {
+
+    useEffect(() => {
+        document.title = 'Art Store - Contacto';
+        return () => {
+            document.title = 'Art Store - Productos Personalizados';
+        };
+    }, [])
+
    return (
     <Container className="my-5">
       <Row className="justify-content-md-center">

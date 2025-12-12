@@ -29,21 +29,17 @@ const Footer = () => {
             <p>
               <i className="fas fa-envelope mr-3"></i> zeuschris123@gmail.com
             </p>
-            <p>
-              <i className="fas fa-phone mr-3"></i> +54 911-5564-7125
-            </p>
           </Col>
         </Row>
 
         <hr className="mb-4" style={{ backgroundColor: '#ffffff', height: '1px' }} />
 
         <Row className="align-items-center">
-          {/* Copyright */}
           <Col md={7} lg={8} className="text-center text-md-start">
             <p className="text-white mb-0">
               © {new Date().getFullYear()} Todos los derechos reservados por: 
               <a href="#" style={{ textDecoration: 'none' }}>
-                <strong style={{color:'#cf51a5ff'}}>Art Store</strong>
+                <strong style={{color:'#cf51a5ff'}}> Art Store</strong>
               </a>
             </p>
           </Col>
@@ -52,10 +48,10 @@ const Footer = () => {
             <div className="text-center text-md-right">
               <ul className="list-unstyled list-inline">
                 <li className="list-inline-item">
-                  <a href="https://www.linkedin.com/in/christophermontes158/" target='_blank' className="btn-floating btn-sm text-white" style={{ fontSize: '23px' }}><FaLinkedin /></a>
+                  <a href="#" className="btn-floating btn-sm text-white" style={{ fontSize: '23px' }}><FaLinkedin /></a>
                 </li>
                 <li className="list-inline-item">
-                  <a href="https://instagram.com/chris_angel158" target='_blank' className="btn-floating btn-sm text-white" style={{ fontSize: '23px' }}><FaInstagram /></a>
+                  <a href="#" className="btn-floating btn-sm text-white" style={{ fontSize: '23px' }}><FaInstagram /></a>
                 </li>
                 <li className="list-inline-item">
                   <a href="https://github.com/zeuschris/Art-Store" target='_blank'  className="btn-floating btn-sm text-white" style={{ fontSize: '23px' }}><FaGithub /></a>

@@ -1,7 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'; 
+import { useEffect } from 'react';
 
 const Error = () => {
+
+  useEffect(() => {
+            document.title = 'Art Store - Error 404';
+            return () => {
+                document.title = 'Art Store - Productos Personalizados';
+            };
+        }, [])
+    
   return (
     <Container className="d-flex align-items-center justify-content-center vh-100 text-center">
       <Row>
