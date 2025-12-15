@@ -1,16 +1,87 @@
-# React + Vite
+![Art Store App](./Art-Store-Readme.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🛍️ Art Store App
 
-Currently, two official plugins are available:
+**Art Store App** es una aplicación web moderna de comercio electrónico enfocada en la venta de productos personalizados como **gorras, tazas, remeras y sweaters**. El proyecto está desarrollado con un enfoque **frontend profesional**, priorizando la experiencia de usuario, el rendimiento y una interfaz visual atractiva.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Los productos se gestionan mediante **Firebase**, y la aplicación cuenta con un **carrito de compras completo**, validaciones avanzadas y un flujo preparado para la **emisión de órdenes de compra**.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Características principales
 
-## Expanding the ESLint configuration
+- Catálogo dinámico de productos personalizados
+- Carrito de compras con múltiples funcionalidades
+- Generación de órdenes de compra
+- Validación de formularios robusta
+- Animaciones y transiciones suaves
+- Feedback visual con notificaciones y alertas
+- Diseño responsive y orientado a UX/UI
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧩 Tecnologías utilizadas
+
+- ⚛️ **React**
+- 🔥 **Firebase**
+- 🧭 **React Router**
+- 🎨 **React Bootstrap**
+- 📝 **React Hook Form**
+- ✅ **Yup**
+- 🎞️ **React Spring**
+- 👀 **React Intersection Observer**
+- ⏳ **React Spinner**
+- 🔔 **React Toastify**
+- 📊 **React Top Loading Bar**
+- 🚨 **SweetAlert2**
+- 🎨 **React Icons**
+- 🤖 **Gemini IA**
+
+---
+
+## ⚙️ Instalación
+
+Para ejecutar el proyecto en tu entorno local, sigue estos pasos:
+
+1. Asegurate de tener **Node.js v20 o superior** instalado.
+2. Clona este repositorio.
+3. Instala las dependencias:
+
+```bash
+npm install
+```
+
+---
+
+## ▶️ Uso
+
+Para iniciar el servidor de desarrollo, ejecuta:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en tu navegador por defecto.
+
+---
+
+## 🚀 Despliegue
+
+La aplicación se encuentra desplegada y disponible en:
+
+🔗 **https://art-store-pink.vercel.app**
+
+---
+
+## 🎨 Activos visuales y diseño
+
+Las imágenes de los productos fueron creadas con **Gemini IA**, aportando una estética **moderna, creativa y única**, alineada con la identidad visual del proyecto.
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado con dedicación por **Chris**  
+Frontend Developer
+
+---
