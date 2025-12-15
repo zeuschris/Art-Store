@@ -1,4 +1,4 @@
-![Art Store App](/Art-Store-Readme.png)
+![Art Store App](./public/Art-Store-Readme.png)
 
 # 🛍️ Art Store App
 
