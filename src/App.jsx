@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import CartContainer from './components/CartContainer';
 import Nosotros from './components/Nosotros';
 import Contacto from './components/Contacto';
+import AdminMessages from './components/AdminMessages';
 import Checkout from './components/Checkout';
 import Error from './components/Error';
 import Footer from './components/Footer';
@@ -29,6 +30,7 @@ function App() {
           <Route path='/cart' element={<CartContainer/>}/>
           <Route path='/nosotros' element={<Nosotros/>}/>
           <Route path='/contacto' element={<Contacto/>}/>
+          <Route path="/admin/mensajes" element={<AdminMessages/>} />
           <Route path='/checkout' element={<Checkout/>}/>
           <Route path='*' element={<Error/>}/>
         </Routes>
