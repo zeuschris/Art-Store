@@ -3,18 +3,12 @@ import { CartContext } from "../context/CartContext"
 import { Container, Row, Col, Button, Table, Image, Card } from 'react-bootstrap';
 import { FaTrashAlt  } from 'react-icons/fa';
 import { Link } from 'react-router-dom'; 
+import formatPriceDisplay from '../utils/formatPrice'
 import Swal from 'sweetalert2'; 
 
 const CartView = () => {
     
     const {cart, clear, removeItem, getTotal} = useContext(CartContext)
-    
-  
-    const formatPriceDisplay = (price) => {
-        return parseFloat(price || 0).toFixed(2)
-            .replace('.', ',')
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-    }
     
     const handleClearCart = () => {
         Swal.fire({
@@ -107,7 +101,7 @@ const CartView = () => {
                 <Col xs={12} lg={5} className="d-grid gap-3 mb-4 mb-lg-0">
                     
                     <Link to="/" className="text-decoration-none d-grid">
-                        <Button variant="outline-dark" size="lg" className="text-uppercase">
+                        <Button variant="secondary" size="lg" className="text-uppercase">
                             🛒 Seguir Comprando
                         </Button>
                     </Link>

@@ -27,22 +27,24 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #000000; 
+    background-color: #f1f1f1; 
 }
-
-
 ::-webkit-scrollbar-track:hover {
-    background-color: #000000;
+    background-color: #e0e0e0;
 }
+
 ::-webkit-scrollbar-track:active {
-    background-color: #1E1F20;
+    background-color: #d0d0d0;
 }
+
 ::-webkit-scrollbar-thumb {
-    background-color: #8A2BE2;
+    background-color: #EC6EAD;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #8A2BE2;
+    background-color: #cf51a5;
 }
+
 ::-webkit-scrollbar-thumb:active {
-    background-color: #8A2BE2;
+    background-color: #b03d8f;
 }

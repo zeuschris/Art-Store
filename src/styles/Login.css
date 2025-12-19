@@ -1,0 +1,41 @@
+.custom-tabs .nav-item .nav-link {
+    color: #495057 !important;
+    background-color: #f8f9fa !important;
+    margin: 0 2px;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #dee2e6;
+    padding: 12px;
+}
+
+.custom-tabs .nav-item .nav-link.active {
+    color: #fff !important;
+    background-color: #6e7074 !important;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+.divider-container {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 0 10px;
+    font-size: 0.9rem;
+}
+
+.social-button {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+    font-weight: 500;
+}

@@ -21,7 +21,7 @@ const Nosotros = () => {
             Nuestra Historia
           </h1>
           
-          <p className="lead text-muted mb-4">
+          <p className="lead  mb-4">
             Somos un equipo de apasionados dedicados a ofrecer soluciones innovadoras y de alta calidad. Desde nuestros comienzos en 2024, hemos crecido gracias a nuestro compromiso con la excelencia y la satisfacción del cliente.
           </p>
           

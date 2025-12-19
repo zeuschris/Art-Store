@@ -17,7 +17,7 @@ const checkoutSchema = yup.object().shape({
     .string()
     .required("El correo electrónico es obligatorio")
     .email("Debe ser un correo electrónico válido")
-    .max(20, "El correo no debe exceder los 20 caracteres"), 
+    .max(50, "El correo no debe exceder los 50 caracteres"), 
 
   confirmEmail: yup
     .string()

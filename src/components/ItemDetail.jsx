@@ -1,7 +1,9 @@
 import { useState, useContext } from 'react'; 
 import { Container, Row, Col, Card, Carousel, Image, Modal, Button } from 'react-bootstrap'; 
 import { CartContext } from '../context/CartContext';
+import { useFavorites } from '../context/FavoritesContext';
 import { Link } from 'react-router-dom';
+import { FiHeart } from 'react-icons/fi';
 import ItemCount from './ItemCount';
 
 const ItemDetail = ({ detail }) => {
@@ -9,6 +11,7 @@ const ItemDetail = ({ detail }) => {
   const [selectedImage, setSelectedImage] = useState('')
   const [purchase, setPurchase] = useState(false)
   const { addItem, avaibleStock } = useContext(CartContext)
+  const { isFavorite, toggleFavorite } = useFavorites()
 
   const handleCloseModal = () => setShowModal(false)
   
@@ -22,13 +25,19 @@ const ItemDetail = ({ detail }) => {
     setPurchase(true)
   }
 
+  const handleFavoriteClick = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await toggleFavorite(detail);
+  }
+
   const updatedStock = detail.stock - avaibleStock(detail.id)
 
   return (
     <Container className="my-5">
       <Row className="justify-content-center">
         <Col xs={12} md={10} lg={8}>
-          <Card className="shadow-sm text-center">
+          <Card className="shadow-sm text-center border-0">
             <Row className="g-0">
               <Col xs={12} md={6}>
                 {detail.images && detail.images.length > 0 ? (
@@ -68,6 +77,17 @@ const ItemDetail = ({ detail }) => {
                   <Card.Text>
                     Stock disponible: {updatedStock}
                   </Card.Text>
+                  <div className="d-flex gap-2 align-items-center mb-3 justify-content-center">
+                    <Button
+                      type="button"
+                      variant={isFavorite(detail.id) ? "danger" : "outline-danger"}
+                      onClick={handleFavoriteClick}
+                      className="d-flex align-items-center gap-2"
+                    >
+                      <FiHeart fill={isFavorite(detail.id) ? 'white' : 'none'} />
+                      {isFavorite(detail.id) ? 'En Favoritos' : 'Agregar a Favoritos'}
+                    </Button>
+                  </div>
                   {
                     purchase 
                     

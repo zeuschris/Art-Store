@@ -75,6 +75,7 @@ const ItemListContainer = ({message}) => {
                         <ItemSkeleton />
                         <ItemSkeleton />
                         <ItemSkeleton />
+                        <ItemSkeleton />
                     </div>
                     :
                     <ItemList data = {data}/> 

@@ -1,25 +1,32 @@
+/* Estilos para el botón con degradado */
 .btn-grad {
     background-image: linear-gradient(to right, #3494E6 0%, #EC6EAD 51%, #3494E6 100%);
     background-size: 200% auto; 
+    background-position: left center;
     
-    margin: 10px;
+    /* CAMBIO: Eliminamos margin fijo para que no rompa el centrado en móviles */
+    margin: 10px 0; 
     padding: 10px 25px;
     text-align: center;
     text-transform: uppercase;
-    transition: 0.5s;
-    color: white; 
+    transition: all 0.5s ease, text-shadow 0.3s ease, background-position 0.5s ease;
+    color: white !important; 
     border-radius: 10px;
     border: none;
     display: block;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    width: 100%; /* Asegura que ocupe el ancho del contenedor */
 }
-
 
 .btn-grad:hover {
     background-position: right center;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
 }
 
+/* Tarjeta Principal */
 .card-item {
     background: linear-gradient(to right, #29323c, #485563); 
     color: #fff;
@@ -28,8 +35,19 @@
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.2), 
         0 0 10px rgba(52, 148, 230, 0.3);
+    
+    /* MEJORA: Forzamos a que la tarjeta use Flexbox para alinear el contenido */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
 }
 
+/* Imagen de la tarjeta */
+.card-item .card-img-top {
+    height: 250px; /* Altura fija para que todas sean iguales */
+    object-fit: cover; /* Evita que la imagen se deforme */
+    width: 100%;
+}
 
 .card-item:hover {
     transform: translateY(-5px); 
@@ -39,10 +57,20 @@
         0 0 40px rgba(236, 110, 173, 0.5); 
 }
 
+/* Cuerpo de la tarjeta */
+.card-item .card-body {
+    flex-grow: 1; /* Hace que el cuerpo crezca para empujar el footer hacia abajo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+/* Footer de la tarjeta */
 .card-footer {
     display: flex;
     justify-content: center;
     background: transparent; 
     border: none;
+    padding: 15px; /* Espaciado interno consistente */
+    margin-top: auto; /* Se asegura de estar siempre al final */
 }
