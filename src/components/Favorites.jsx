@@ -8,6 +8,7 @@ import LoaderComponent from './LoaderComponent';
 const Favorites = () => {
   const { favorites, loading, removeFromFavorites } = useFavorites();
   const { user } = useAuth();
+  const primaryColor = '#cf51a5'
 
   if (!user) {
     return (
@@ -34,7 +35,7 @@ const Favorites = () => {
           <FiHeart size={64} className="text-muted mb-3" />
           <h2>No tienes favoritos aún</h2>
           <p className="text-muted mb-4">Explora nuestros productos y agrega tus favoritos</p>
-          <Link to="/" className="btn btn-primary">
+          <Link to="/" className="btn btn-grad">
             <FiArrowLeft className="me-2" />
             Ver Productos
           </Link>
@@ -46,8 +47,16 @@ const Favorites = () => {
   return (
     <Container className="my-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Mis Favoritos</h2>
-        <Link to="/" className="btn btn-outline-secondary">
+          <h2 style={{
+            color:primaryColor, 
+            fontSize:'60px', 
+            fontWeight:'bold', 
+            textShadow: '1px 1px 2px #EC6EAD', 
+            fontFamily: '"Sansita", sans-serif'}} 
+            className="display-4 fw-bold mb-3">
+            Mis Favoritos
+          </h2>
+        <Link to="/" className="btn btn-secondary">
           <FiArrowLeft className="me-2" />
           Volver
         </Link>
@@ -94,6 +103,7 @@ const Favorites = () => {
 };
 
 export default Favorites;
+
 
 
 

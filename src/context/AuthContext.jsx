@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(auth);
-      toast.success('Sesión cerrada exitosamente')
+      toast.success('Se ha cerrado la sesión')
     } catch (error) {
       toast.error('Error al cerrar sesión')
       throw error;
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const provider = new GoogleAuthProvider()
       const userCredential = await signInWithPopup(auth, provider)
-      toast.success('¡Inicio de sesión con Google exitoso!')
+      toast.success(`¡Bievenido ${userCredential.user.displayName}!`)
       return userCredential.user;
     } catch (error) {
       let errorMessage = 'Error al iniciar sesión con Google'
