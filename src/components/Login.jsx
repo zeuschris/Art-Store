@@ -14,7 +14,6 @@ const Login = () => {
   const { login, register, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  // Handlers simplificados
   const handleAuthAction = async (action, ...args) => {
     try {
       await action(...args);

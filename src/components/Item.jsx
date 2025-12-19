@@ -66,7 +66,6 @@ export const Item = ({product, index}) => {
                     <Card.Text className="fs-4 mt-2">
                         $ {product.price}
                     </Card.Text>
-                    {/* Este div vacío empuja el footer hacia abajo */}
                     <div className="flex-grow-1"></div>
                 </Card.Body>
                 

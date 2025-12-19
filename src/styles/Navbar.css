@@ -37,20 +37,16 @@
   margin: 8px 0;
 }
 
-/* --- LOGICA DE ALINEACIÓN --- */
-
 @media (min-width: 768px) {
-  /* Permite que las secciones de los lados se expandan equitativamente */
   .navbar-side-container {
     flex: 1;
     min-width: 150px;
   }
 }
 
-/* Responsividad para móviles */
 @media (max-width: 767px) {
   .brand-logo {
-    height: 80px !important; /* Siempre pequeño en móvil */
+    height: 80px !important; 
   }
   
   .navbar-side-container {

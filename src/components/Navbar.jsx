@@ -21,8 +21,7 @@ const NavbarComponent = () => {
   return (
     <Navbar expand="md" sticky="top" className="custom-navbar py-2 bg-dark">
       <Container fluid className="d-flex align-items-center justify-content-between">
-        
-        {/* COLUMNA IZQUIERDA: Logo (Contenedor con flex-1) */}
+
         <div className="nav-col-side d-flex justify-content-start">
           <Navbar.Brand as={NavLink} to='/' className="ms-md-4">
             <img
@@ -38,7 +37,6 @@ const NavbarComponent = () => {
 
         <Navbar.Collapse id="main-navbar" className="nav-collapse-wrapper">
           
-          {/* COLUMNA CENTRAL: Links (Siempre con mx-auto para centrado real) */}
           <Nav className="mx-auto text-center gap-4 py-3 py-md-0">
             <Nav.Link as={NavLink} to='/'>Inicio</Nav.Link>
             <NavDropdown title="Productos" id="productos-dropdown">
@@ -54,7 +52,6 @@ const NavbarComponent = () => {
             <Nav.Link as={NavLink} to='/contacto'>Contacto</Nav.Link>
           </Nav>
 
-          {/* COLUMNA DERECHA: Acciones de usuario (Contenedor con flex-1) */}
           <div className="nav-col-side d-flex align-items-center gap-3 justify-content-center justify-content-md-end me-md-4 mt-3 mt-md-0">
             {user ? (
               <>
