@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
-import { Container, Row, Col, Button, Card, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card, Table } from 'react-bootstrap';
 import { FaTrashAlt, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom'; 
 import formatPriceDisplay from '../utils/formatPrice'
@@ -10,7 +10,7 @@ import '../styles/CartView.css';
 const CartView = () => {
     
     const {cart, clear, removeItem, getTotal} = useContext(CartContext)
-
+    
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -49,85 +49,117 @@ const CartView = () => {
                 🛍️ Resumen de tu Pedido
             </h2>
 
-            <Row className="justify-content-center mb-4">
-                <Col xs={12} lg={10}>
-                    <ListGroup variant="flush" className="shadow-sm rounded">
-                        {cart.map((sales) => { 
-                            const subtotal = sales.price * sales.quantity; 
-                            
-                            return (
-                                <ListGroup.Item 
-                                    key={sales.id} 
-                                    className="cart-list-item p-3"
-                                >
-                                    <Row className="align-items-center g-3">
+            {/* ===== VISTA MOBILE - CARDS (solo < 768px) ===== */}
+            <div className="d-md-none">
+                {cart.map((sales) => { 
+                    const subtotal = sales.price * sales.quantity; 
+                    
+                    return (
+                        <Card key={sales.id} className="mb-3 shadow-sm cart-item-mobile">
+                            <Card.Body className="p-3">
+                                <Row className="g-3">
+                                    <Col xs={4}>
+                                        <img 
+                                            src={sales.images ? sales.images[0] : ''} 
+                                            alt={sales.name}
+                                            className="img-fluid cart-mobile-image"
+                                        />
+                                    </Col>
+                                    <Col xs={8}>
+                                        <h5 className="cart-product-name mb-2">{sales.name}</h5>
+                                        <div className="cart-item-details">
+                                            <p className="mb-1">
+                                                <span className="cart-info-label">Cantidad:</span>
+                                                <strong className="ms-2 cart-info-value">{sales.quantity}</strong>
+                                            </p>
+                                            <p className="mb-1">
+                                                <span className="cart-info-label">Precio:</span>
+                                                <strong className="ms-2 cart-info-value">${formatPriceDisplay(sales.price)}</strong>
+                                            </p>
+                                            <p className="mb-2">
+                                                <span className="cart-info-label">Subtotal:</span>
+                                                <strong className="ms-2 text-success">${formatPriceDisplay(subtotal)}</strong>
+                                            </p>
+                                        </div>
+                                        <Button 
+                                            variant="outline-danger" 
+                                            size="sm"
+                                            className="w-100 mt-2 btn-delete-mobile"
+                                            onClick={() => removeItem(sales.id)} 
+                                        >
+                                            <FaTrashAlt className="me-2" />
+                                            Eliminar
+                                        </Button>
+                                    </Col>
+                                </Row>
+                            </Card.Body>
+                        </Card>
+                    );
+                })}
+            </div>
 
-                                        <Col xs={4} sm={3} md={2} lg={2}>
-                                            <img 
-                                                src={sales.images ? sales.images[0] : ''} 
-                                                alt={sales.name}
-                                                className="img-fluid cart-item-img"
-                                            />
-                                        </Col>
-
-                                        <Col xs={8} sm={4} md={3} lg={3}>
-                                            <strong className="cart-product-name">{sales.name}</strong>
-                                        </Col>
-
-                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
-                                            <div className="cart-info-label d-sm-none">Cantidad</div>
-                                            <div className="cart-info-value">
+            {/* ===== VISTA DESKTOP - TABLA (solo >= 768px) ===== */}
+            <div className="d-none d-md-block">
+                <Row className="justify-content-center">
+                    <Col xs={12} lg={10}>
+                        <Table striped hover className="align-middle shadow-sm cart-table-desktop">
+                            <thead className="table-dark">
+                                <tr>
+                                    <th className="text-center" style={{width: '100px'}}>Imagen</th>
+                                    <th>Producto</th>
+                                    <th className="text-center" style={{width: '120px'}}>Cantidad</th>
+                                    <th className="text-end" style={{width: '130px'}}>Precio Unit.</th>
+                                    <th className="text-end" style={{width: '130px'}}>Subtotal</th>
+                                    <th className="text-center" style={{width: '120px'}}>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cart.map((sales) => { 
+                                    const subtotal = sales.price * sales.quantity; 
+                                    
+                                    return (
+                                        <tr key={sales.id} className="cart-table-row">
+                                            <td className="text-center">
+                                                <img 
+                                                    src={sales.images ? sales.images[0] : ''} 
+                                                    alt={sales.name}
+                                                    className="cart-desktop-image"
+                                                />
+                                            </td>
+                                            <td>
+                                                <strong className="cart-product-name">{sales.name}</strong>
+                                            </td>
+                                            <td className="text-center">
                                                 <span className="badge bg-secondary fs-6 px-3 py-2">
                                                     {sales.quantity}
                                                 </span>
-                                            </div>
-                                        </Col>
-
-                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
-                                            <div className="cart-info-label d-sm-none">Precio</div>
-                                            <div className="cart-info-value">
+                                            </td>
+                                            <td className="text-end cart-info-value">
                                                 ${formatPriceDisplay(sales.price)}
-                                            </div>
-                                        </Col>
-
-                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
-                                            <div className="cart-info-label d-sm-none">Subtotal</div>
-                                            <div className="cart-info-value text-success">
+                                            </td>
+                                            <td className="text-end text-success fw-bold fs-5">
                                                 ${formatPriceDisplay(subtotal)}
-                                            </div>
-                                        </Col>
-
-                                        <Col xs={12} sm={3} md={1} lg={1} className="text-center">
-                                            <Button 
-                                                variant="outline-danger" 
-                                                size="sm"
-                                                className="w-100 btn-delete"
-                                                onClick={() => removeItem(sales.id)} 
-                                            >
-                                                <FaTrashAlt className="me-1" />
-                                                <span className="d-none d-md-inline">Eliminar</span>
-                                                <span className="d-md-none">Quitar</span>
-                                            </Button>
-                                        </Col>
-                                    </Row>
-                                </ListGroup.Item>
-                            );
-                        })}
-                    </ListGroup>
-
-                    <div className="d-none d-lg-block mb-2">
-                        <Row className="fw-bold" style={{ color: '#EC6EAD', fontSize: '0.9rem' }}>
-                            <Col lg={2}>IMAGEN</Col>
-                            <Col lg={3}>PRODUCTO</Col>
-                            <Col lg={2} className="text-center">CANTIDAD</Col>
-                            <Col lg={2} className="text-center">PRECIO</Col>
-                            <Col lg={2} className="text-center">SUBTOTAL</Col>
-                            <Col lg={1} className="text-center">ACCIÓN</Col>
-                        </Row>
-                    </div>
-                </Col>
-            </Row>
+                                            </td>
+                                            <td className="text-center">
+                                                <Button 
+                                                    variant="outline-danger" 
+                                                    size="sm" 
+                                                    onClick={() => removeItem(sales.id)}
+                                                    className="btn-delete-desktop"
+                                                >
+                                                    <FaTrashAlt/>
+                                                </Button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </Table>
+                    </Col>
+                </Row>
+            </div>
             
+            {/* ===== BOTONES Y RESUMEN ===== */}
             <Row className="mt-4 justify-content-between align-items-start">
                 <Col xs={12} lg={5} className="mb-4 mb-lg-0">
                     <div className="d-grid gap-3">
@@ -155,7 +187,7 @@ const CartView = () => {
                 <Col xs={12} lg={5}>
                     <Card className="shadow-lg border-primary cart-summary" style={{ backgroundColor: '#1a1a1a', borderColor: '#cf51a5ff' }}>
                         <Card.Body className="p-4">
-                            <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom" style={{ borderColor: '#cf51a5ff !important' }}>
+                            <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom" style={{ borderColor: '#444' }}>
                                 <h5 className="mb-0" style={{ color: '#ffffff', fontWeight: 'bold' }}>Total a pagar:</h5>
                                 <h3 className="mb-0" style={{ color: '#4ade80', fontWeight: 'bold' }}>
                                     ${formatPriceDisplay(getTotal())}
