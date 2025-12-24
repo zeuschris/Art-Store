@@ -1,0 +1,224 @@
+/* Footer.css - Versión Responsive Completa */
+
+footer {
+    margin-top: auto;
+    position: relative;
+    width: 100%;
+}
+
+.btn-floating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem;
+}
+
+.btn-floating:hover {
+    color: #cf51a5ff !important;
+    transform: translateY(-3px);
+    transition: all 0.3s ease-in-out;
+}
+
+a.text-white:hover {
+    color: #cccccc !important;
+    transition: color 0.3s ease;
+}
+
+.font-weight-bold {
+    font-weight: 700; 
+}
+
+/* Asegurar que los enlaces sean clickeables en mobile */
+footer a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+footer p {
+    line-height: 1.6;
+}
+
+/* Tablet y Mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 0 1.5rem !important;
+    }
+
+    footer h5 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    footer .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+
+    footer .col-md-6:last-child {
+        margin-bottom: 0;
+    }
+
+    footer .list-inline-item {
+        margin: 0 0.75rem;
+    }
+
+    footer .list-inline-item a {
+        font-size: 26px !important;
+    }
+
+    footer hr {
+        margin: 1.5rem 0;
+    }
+
+    /* Centrar todo en tablet/mobile */
+    footer .text-md-start,
+    footer .text-md-end {
+        text-align: center !important;
+    }
+
+    footer .d-flex {
+        justify-content: center !important;
+    }
+
+    footer .justify-content-md-start {
+        justify-content: center !important;
+    }
+}
+
+/* Mobile pequeño */
+@media (max-width: 576px) {
+    footer {
+        padding: 1.5rem 0.5rem 1rem !important;
+    }
+
+    footer h5 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem !important;
+    }
+
+    footer .col-md-6 {
+        margin-bottom: 1.25rem;
+        padding: 0 1rem;
+    }
+
+    footer .list-inline-item {
+        margin: 0 0.5rem;
+    }
+
+    footer .list-inline-item a {
+        font-size: 24px !important;
+    }
+
+    footer hr {
+        margin: 1.25rem 0;
+    }
+
+    footer .small {
+        font-size: 0.8rem !important;
+    }
+
+    /* Ajustar iconos de contacto */
+    footer .me-2 {
+        margin-right: 0.5rem !important;
+        font-size: 0.9rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+    footer {
+        padding: 3rem 0 2rem !important;
+    }
+
+    footer h5 {
+        font-size: 1.5rem;
+    }
+
+    footer .list-inline-item a {
+        font-size: 25px !important;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    footer .container {
+        max-width: 1140px;
+    }
+}
+
+/* Animaciones suaves */
+footer h5,
+footer p,
+footer a {
+    transition: all 0.3s ease;
+}
+
+/* Accesibilidad - Focus states */
+footer a:focus,
+footer .btn-floating:focus {
+    outline: 2px solid #cf51a5ff;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Touch feedback para mobile */
+@media (max-width: 768px) {
+    footer .btn-floating:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Prevenir selección de texto en iconos */
+footer .btn-floating {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Responsive icons sizing */
+footer svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* Mejorar legibilidad en mobile */
+@media (max-width: 576px) {
+    footer {
+        font-size: 14px;
+    }
+    
+    footer .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Prevenir overflow horizontal */
+footer,
+footer * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Dark mode support (opcional) */
+@media (prefers-color-scheme: dark) {
+    footer {
+        background-color: #1a1a1a !important;
+    }
+}

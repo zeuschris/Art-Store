@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'; 
+import { useState, useContext, useEffect } from 'react'; 
 import { Container, Row, Col, Card, Carousel, Image, Modal, Button } from 'react-bootstrap'; 
 import { CartContext } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
@@ -12,6 +12,10 @@ const ItemDetail = ({ detail }) => {
   const [purchase, setPurchase] = useState(false)
   const { addItem, avaibleStock } = useContext(CartContext)
   const { isFavorite, toggleFavorite } = useFavorites()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [detail.id]); 
 
   const handleCloseModal = () => setShowModal(false)
   
@@ -50,6 +54,7 @@ const ItemDetail = ({ detail }) => {
                           fluid
                           className="w-100 h-100 object-fit-cover cursor-pointer" 
                           onClick={() => handleShowModal(imgSrc)} 
+                          style={{ minHeight: '300px', maxHeight: '500px' }}
                         />
                       </Carousel.Item>
                     ))}
@@ -60,7 +65,8 @@ const ItemDetail = ({ detail }) => {
                     alt={detail.name}
                     fluid
                     className="w-100 h-100 object-fit-cover cursor-pointer"
-                    onClick={() => handleShowModal(detail.image)} 
+                    onClick={() => handleShowModal(detail.image)}
+                    style={{ minHeight: '300px', maxHeight: '500px' }}
                   />
                 )}
               </Col>

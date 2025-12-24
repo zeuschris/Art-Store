@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../service/firebase';
@@ -19,6 +19,10 @@ const Checkout = () => {
     const [process, setProcess] = useState(false)
     const [firebaseError, setFirebaseError] = useState(null)
     const { cart, clear, getTotal } = useContext(CartContext)
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const {
         register, 
@@ -59,6 +63,7 @@ const Checkout = () => {
             const res = await addDoc(ventas, orden)
             setOrderId(res.id);
             clear();
+            window.scrollTo(0, 0);
         } catch (error) {
             console.error("Error al crear la orden:", error);
             setFirebaseError('Hubo un error al procesar la orden. Intente nuevamente.')
@@ -74,7 +79,7 @@ const Checkout = () => {
     if (orderId) {
         return (
              <Container className="my-5 py-5 text-center">
-                 <Card className="shadow-lg p-5 mx-auto" style={{ maxWidth: '600px', borderColor: accentColor, borderLeft: `5px solid ${accentColor}` }}>
+                 <Card className="shadow-lg p-4 p-md-5 mx-auto" style={{ maxWidth: '600px', borderColor: accentColor, borderLeft: `5px solid ${accentColor}` }}>
                      <FaCheckCircle size={80} className="mb-4 mx-auto" style={{ color: accentColor }} />
                      <h2 className="mb-3" style={{ color: primaryColor, fontWeight: 'bold' }}>¡Muchas gracias por tu compra!</h2>
                      <p className="lead">Tu pedido ha sido procesado exitosamente.</p>
@@ -92,16 +97,16 @@ const Checkout = () => {
 
     return (
         <Container className="my-5">
-            <h1 className="text-center mb-5 fw-bold" style={{ color: primaryColor }}>
-                <FaLock size={30} className="me-3" style={{ color: accentColor }} />
+            <h1 className="text-center mb-4 mb-md-5 fw-bold" style={{ color: primaryColor, fontSize: 'clamp(1.75rem, 5vw, 2.5rem)' }}>
+                <FaLock size={30} className="me-2 me-md-3" style={{ color: accentColor }} />
                 Finalizar Compra
             </h1>
 
             <Row className="justify-content-center">
-                <Col lg={7} md={12} className="mb-4">
+                <Col lg={7} md={12} className="mb-4 order-2 order-lg-1">
                     <Card className="shadow-lg border-3">
-                        <Card.Body>
-                            <h4 className="mb-4 fw-bold" style={{ color: primaryColor }}>
+                        <Card.Body className="p-3 p-md-4">
+                            <h4 className="mb-3 mb-md-4 fw-bold" style={{ color: primaryColor, fontSize: 'clamp(1.25rem, 4vw, 1.75rem)' }}>
                                 Complete sus Datos
                             </h4>
 
@@ -122,7 +127,8 @@ const Checkout = () => {
                                             type='text' 
                                             placeholder='Tu nombre' 
                                             {...register("name")} 
-                                            isInvalid={!!errors.name} 
+                                            isInvalid={!!errors.name}
+                                            style={{ fontSize: '16px' }}
                                         />
                                         <Form.Control.Feedback type="invalid">
                                             {errors.name?.message}
@@ -137,6 +143,7 @@ const Checkout = () => {
                                             placeholder='Tu apellido' 
                                             {...register("lastname")} 
                                             isInvalid={!!errors.lastname}
+                                            style={{ fontSize: '16px' }}
                                         />
                                         <Form.Control.Feedback type="invalid">
                                             {errors.lastname?.message}
@@ -153,6 +160,7 @@ const Checkout = () => {
                                             placeholder='micorreo@mail.com' 
                                             {...register("email")}
                                             isInvalid={!!errors.email}
+                                            style={{ fontSize: '16px' }}
                                         />
                                         <Form.Control.Feedback type="invalid">
                                             {errors.email?.message}
@@ -167,6 +175,7 @@ const Checkout = () => {
                                             placeholder='Confirma tu correo' 
                                             {...register("confirmEmail")}
                                             isInvalid={!!errors.confirmEmail}
+                                            style={{ fontSize: '16px' }}
                                         />
                                         <Form.Control.Feedback type="invalid">
                                             {errors.confirmEmail?.message}
@@ -182,6 +191,7 @@ const Checkout = () => {
                                         placeholder='1123456789' 
                                         {...register("phone")}
                                         isInvalid={!!errors.phone}
+                                        style={{ fontSize: '16px' }}
                                     />
                                     <Form.Control.Feedback type="invalid">
                                         {errors.phone?.message}
@@ -189,22 +199,16 @@ const Checkout = () => {
                                 </Form.Group>
 
                                 <div className="text-center mb-4">
-                                    <h5 className="mb-3 fw-bold" style={{ color: primaryColor }}>
+                                    <h5 className="mb-3 fw-bold" style={{ color: primaryColor, fontSize: 'clamp(1rem, 3vw, 1.25rem)' }}>
                                         Aceptamos:
                                     </h5>
                                     
-                                    <span className="me-3">
+                                    <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 gap-md-3">
                                         <FaCcVisa size={40} className="text-primary" title="Visa" />
-                                    </span>
-                                    <span className="me-3" style={{ verticalAlign: 'middle' }}>
                                         <img src='../MasterCard_Logo.png' alt="Mastercard Logo" style={{ height: '35px', width: 'auto' }} />
-                                    </span>
-                                    <span className="me-3" style={{ verticalAlign: 'middle' }}>
                                         <img src='../Mercado_Pago.png' alt="Mercado Pago Logo" style={{ height: '30px', width: 'auto' }} />
-                                    </span>
-                                    <span className="me-3">
                                         <FaCcPaypal size={40} className="text-info" title="PayPal" />
-                                    </span>
+                                    </div>
                                 </div>
 
                                 <div className="d-grid mt-4">
@@ -212,7 +216,8 @@ const Checkout = () => {
                                         type="submit"
                                         size="lg"
                                         className="fw-bold d-flex justify-content-center align-items-center btn-grad"
-                                        disabled={process} 
+                                        disabled={process}
+                                        style={{ minHeight: '50px' }}
                                     >
                                         {
                                             process ? 
@@ -229,26 +234,34 @@ const Checkout = () => {
                     </Card>
                 </Col>
             
-                <Col lg={5} md={12}>
-                    <Card className="shadow-lg">
+                <Col lg={5} md={12} className="order-1 order-lg-2 mb-4 mb-lg-0">
+                    <Card className="shadow-lg position-sticky" style={{ top: '20px' }}>
                         <Card.Header
-                            className="fw-bold fs-5 text-white"
-                            style={{ backgroundColor: primaryColor }}
+                            className="fw-bold text-white"
+                            style={{ backgroundColor: primaryColor, fontSize: 'clamp(1.1rem, 3vw, 1.25rem)' }}
                         >
                             Resumen del Pedido
                         </Card.Header>
                         <ListGroup variant="flush">
                             {orderItems.map(item => (
-                                <ListGroup.Item key={item.id} className="d-flex justify-content-between">
-                                    {item.name} <span className="text-muted small">({item.quantity}x)</span>
-                                    <span className="fw-bold">${formatPriceDisplay(item.price * item.quantity)}</span>
+                                <ListGroup.Item key={item.id} className="d-flex justify-content-between align-items-start py-3">
+                                    <div className="flex-grow-1">
+                                        <div className="fw-bold">{item.name}</div>
+                                        <span className="text-muted small">Cantidad: {item.quantity}</span>
+                                    </div>
+                                    <span className="fw-bold ms-2">${formatPriceDisplay(item.price * item.quantity)}</span>
                                 </ListGroup.Item>
                             ))}
                             <ListGroup.Item
-                                className="d-flex justify-content-between fw-bold fs-4"
-                                style={{ color: primaryColor, borderTop: `2px dashed ${accentColor}` }}
+                                className="d-flex justify-content-between align-items-center fw-bold py-3"
+                                style={{ 
+                                    color: primaryColor, 
+                                    borderTop: `2px dashed ${accentColor}`,
+                                    fontSize: 'clamp(1.25rem, 4vw, 1.5rem)'
+                                }}
                             >
-                                Total Final: <span>${formatPriceDisplay(getTotal())}</span>
+                                <span>Total Final:</span>
+                                <span>${formatPriceDisplay(getTotal())}</span>
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>

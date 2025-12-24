@@ -4,6 +4,7 @@ import { Container, Row, Col, Button, Table, Image, Card } from 'react-bootstrap
 import { FaTrashAlt  } from 'react-icons/fa';
 import { Link } from 'react-router-dom'; 
 import formatPriceDisplay from '../utils/formatPrice'
+import '../styles/CartView.css';
 import Swal from 'sweetalert2'; 
 
 const CartView = () => {
