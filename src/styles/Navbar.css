@@ -17,10 +17,63 @@
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
+  background-color: transparent !important;
 }
 
 .nav-link:hover {
   color: #f5e0f0 !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-link:focus,
+.nav-link:active {
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+
+.nav-link.active {
+  color: #ff66cc !important;
+  background-color: transparent !important;
+}
+
+.dropdown-item {
+  color: #ffffff !important;
+  background-color: #212529 !important;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:active {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.dropdown-item.active {
+  background-color: transparent !important;
+  color: #ff66cc !important;
+}
+
+.dropdown-menu {
+  background-color: #212529 !important;
+  border: 1px solid #ff66cc;
+}
+
+.nav-link.dropdown-toggle {
+  background-color: transparent !important;
+}
+
+.nav-link.dropdown-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.nav-link.dropdown-toggle.show {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
 }
 
 .navbar-toggler {
@@ -44,14 +97,12 @@
   white-space: nowrap;
 }
 
-
 @media (min-width: 768px) {
   .navbar-side-container {
     flex: 1;
     min-width: 150px;
   }
 }
-
 
 @media (max-width: 767px) {
   .brand-logo {

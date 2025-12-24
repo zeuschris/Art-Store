@@ -21,7 +21,6 @@ const NavbarComponent = () => {
   return (
     <Navbar expand="md" sticky="top" className="custom-navbar py-2 bg-dark">
       <Container fluid className="d-flex align-items-center justify-content-between">
-        
         <div className="nav-col-side d-flex justify-content-start">
           <Navbar.Brand as={NavLink} to='/' className="ms-md-4">
             <img
