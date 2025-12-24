@@ -1,16 +1,20 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
-import { Container, Row, Col, Button, Table, Image, Card } from 'react-bootstrap';
-import { FaTrashAlt  } from 'react-icons/fa';
+import { Container, Row, Col, Button, Card, ListGroup } from 'react-bootstrap';
+import { FaTrashAlt, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom'; 
 import formatPriceDisplay from '../utils/formatPrice'
-import '../styles/CartView.css';
 import Swal from 'sweetalert2'; 
+import '../styles/CartView.css';
 
 const CartView = () => {
     
     const {cart, clear, removeItem, getTotal} = useContext(CartContext)
     
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const handleClearCart = () => {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -40,103 +44,134 @@ const CartView = () => {
     }
     
     return (
-        <Container className="my-5">
-            <h2 className="mb-4 text-center border-bottom pb-3"
-                style={{ color:'#cf51a5ff', fontFamily: 'Sansita, sans-serif', textShadow: '1px 1px 2px #EC6EAD', fontWeight: 'bold', fontSize: '2.5rem' }}>
+        <Container className="my-5 cart-container">
+            <h2 className="mb-4 text-center border-bottom pb-3 cart-title">
                 🛍️ Resumen de tu Pedido
             </h2>
-
-            <Row className="justify-content-center">
+            
+            <Row className="justify-content-center mb-4">
                 <Col xs={12} lg={10}>
-                    <Table responsive striped hover className="align-middle shadow-sm">
-                        <thead className="table-dark">
-                            <tr>
-                                <th className="text-center"></th>
-                                <th>Producto</th>
-                                <th className="text-center">Cantidad</th>
-                                <th className="text-end">Precio Unit.</th>
-                                <th className="text-end">Subtotal</th>
-                                <th className="text-center">Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cart.map((sales) => { 
-                                const subtotal = sales.price * sales.quantity; 
-                                
-                                return (
-                                    <tr key={sales.id}>
-                                        <td className="text-center">
-                                            <Image 
+                    <ListGroup variant="flush" className="shadow-sm rounded">
+                        {cart.map((sales) => { 
+                            const subtotal = sales.price * sales.quantity; 
+                            
+                            return (
+                                <ListGroup.Item 
+                                    key={sales.id} 
+                                    className="cart-list-item p-3"
+                                >
+                                    <Row className="align-items-center g-3">
+                                        <Col xs={3} sm={2} md={2} lg={1}>
+                                            <img 
                                                 src={sales.images ? sales.images[0] : ''} 
-                                                alt={sales.name} 
-                                                roundedCircle
-                                                style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
+                                                alt={sales.name}
+                                                className="img-fluid rounded cart-item-img"
                                             />
-                                        </td>
-                                        <td><strong>{sales.name}</strong></td>
-                                        <td className="text-center">{sales.quantity}</td>
-                                        <td className="text-end">
-                                            ${formatPriceDisplay(sales.price)}
-                                        </td>
-                                        <td className="text-end">
-                                            <strong>${formatPriceDisplay(subtotal)}</strong>
-                                        </td>
-                                        <td className="text-center">
+                                        </Col>
+
+                                        <Col xs={9} sm={4} md={3} lg={3}>
+                                            <strong className="cart-product-name">{sales.name}</strong>
+                                        </Col>
+
+                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
+                                            <div className="cart-info-label d-sm-none text-muted small">Cantidad</div>
+                                            <div className="cart-info-value">
+                                                <span className="badge bg-secondary fs-6 px-3 py-2">
+                                                    {sales.quantity}
+                                                </span>
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
+                                            <div className="cart-info-label d-sm-none text-muted small">Precio</div>
+                                            <div className="cart-info-value">
+                                                ${formatPriceDisplay(sales.price)}
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={4} sm={2} md={2} lg={2} className="text-center">
+                                            <div className="cart-info-label d-sm-none text-muted small">Subtotal</div>
+                                            <div className="cart-info-value">
+                                                <strong className="text-success">
+                                                    ${formatPriceDisplay(subtotal)}
+                                                </strong>
+                                            </div>
+                                        </Col>
+
+                                        <Col xs={12} sm={2} md={1} lg={2} className="text-center">
                                             <Button 
                                                 variant="outline-danger" 
-                                                size="sm" 
+                                                size="sm"
+                                                className="w-100 btn-delete"
                                                 onClick={() => removeItem(sales.id)} 
                                             >
-                                                <FaTrashAlt/>
+                                                <FaTrashAlt className="me-1" />
+                                                <span className="d-none d-md-inline">Eliminar</span>
+                                                <span className="d-md-none">Quitar</span>
                                             </Button>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </Table>
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                            );
+                        })}
+                    </ListGroup>
+
+                    <div className="d-none d-lg-block mb-2">
+                        <Row className="text-muted small fw-bold">
+                            <Col lg={1}></Col>
+                            <Col lg={3}>PRODUCTO</Col>
+                            <Col lg={2} className="text-center">CANTIDAD</Col>
+                            <Col lg={2} className="text-center">PRECIO</Col>
+                            <Col lg={2} className="text-center">SUBTOTAL</Col>
+                            <Col lg={2} className="text-center">ACCIÓN</Col>
+                        </Row>
+                    </div>
                 </Col>
             </Row>
             
             <Row className="mt-4 justify-content-between align-items-start">
-                <Col xs={12} lg={5} className="d-grid gap-3 mb-4 mb-lg-0">
-                    
-                    <Link to="/" className="text-decoration-none d-grid">
-                        <Button variant="secondary" size="lg" className="text-uppercase">
-                            🛒 Seguir Comprando
-                        </Button>
-                    </Link>
-            
-                    {cart.length > 1 && (
-                        <Button 
-                            variant="outline-danger" 
-                            onClick={handleClearCart} 
-                            size="lg"
-                            className="text-uppercase"
-                        >
-                            Vaciar carrito
-                        </Button>
-                    )}
+                <Col xs={12} lg={5} className="mb-4 mb-lg-0">
+                    <div className="d-grid gap-3">
+                        <Link to="/" className="text-decoration-none">
+                            <Button variant="secondary" size="lg" className="w-100 text-uppercase">
+                                <FaShoppingCart className="me-2" />
+                                Seguir Comprando
+                            </Button>
+                        </Link>
+                
+                        {cart.length > 1 && (
+                            <Button 
+                                variant="outline-danger" 
+                                onClick={handleClearCart} 
+                                size="lg"
+                                className="text-uppercase w-100"
+                            >
+                                <FaTrashAlt className="me-2" />
+                                Vaciar carrito
+                            </Button>
+                        )}
+                    </div>
                 </Col>
 
                 <Col xs={12} lg={5}>
-                    <Card className="p-4 shadow bg-light border-primary">
-                        <div className="d-flex justify-content-between mb-3 border-bottom pb-2">
-                            <span className="mb-0 fs-5 text-dark">Total a pagar:</span>
-                            <span className="text-success fs-3">
-                                <strong>${formatPriceDisplay(getTotal())}</strong>
-                            </span>
-                        </div>
-                        
-                        <div className="d-grid">
-                            <Link 
-                                size="lg" 
-                                className="mt-2 btn-grad text-decoration-none"
-                                to="/checkout"
-                            >
-                                Terminar compra
-                            </Link>
-                        </div>
+                    <Card className="shadow-lg bg-light border-primary cart-summary">
+                        <Card.Body className="p-4">
+                            <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                                <h5 className="mb-0 text-dark">Total a pagar:</h5>
+                                <h3 className="mb-0 text-success">
+                                    <strong>${formatPriceDisplay(getTotal())}</strong>
+                                </h3>
+                            </div>
+                            
+                            <div className="d-grid">
+                                <Link 
+                                    className="btn btn-lg btn-grad text-decoration-none py-3"
+                                    to="/checkout"
+                                >
+                                    Terminar compra
+                                </Link>
+                            </div>
+                        </Card.Body>
                     </Card>
                 </Col>
             </Row>
