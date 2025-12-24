@@ -2,7 +2,7 @@ import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FiUser, FiLogOut } from "react-icons/fi";
+import { FiUser, FiLogOut, FiHeart } from "react-icons/fi";
 import "../styles/Navbar.css";
 
 const NavbarComponent = () => {
@@ -21,7 +21,7 @@ const NavbarComponent = () => {
   return (
     <Navbar expand="md" sticky="top" className="custom-navbar py-2 bg-dark">
       <Container fluid className="d-flex align-items-center justify-content-between">
-
+        
         <div className="nav-col-side d-flex justify-content-start">
           <Navbar.Brand as={NavLink} to='/' className="ms-md-4">
             <img
@@ -52,25 +52,47 @@ const NavbarComponent = () => {
             <Nav.Link as={NavLink} to='/contacto'>Contacto</Nav.Link>
           </Nav>
 
-          <div className="nav-col-side d-flex align-items-center gap-3 justify-content-center justify-content-md-end me-md-4 mt-3 mt-md-0">
+          <div className="nav-col-side d-flex flex-column flex-md-row align-items-center gap-3 justify-content-center justify-content-md-end me-md-4 mt-3 mt-md-0">
             {user ? (
               <>
-                <Nav.Link as={NavLink} to='/favoritos' className="text-white px-0">
-                  Favoritos
+                <Nav.Link 
+                  as={NavLink} 
+                  to='/favoritos' 
+                  className="text-white px-0 d-flex align-items-center justify-content-center gap-2"
+                >
+                  <FiHeart />
+                  <span>Favoritos</span>
                 </Nav.Link>
-                <div className="d-flex align-items-center gap-2 text-white d-none d-lg-flex">
+
+                <div className="d-none d-lg-flex align-items-center gap-2 text-white">
                   <FiUser />
                   <span className="user-name">{user.displayName || user.email}</span>
                 </div>
-                <Button variant="outline-light" size="sm" onClick={handleLogout}>
-                  <FiLogOut /> <span className="d-none d-lg-inline">Salir</span>
+
+                <Button 
+                  variant="outline-light" 
+                  size="sm" 
+                  onClick={handleLogout}
+                  className="d-flex align-items-center justify-content-center gap-2"
+                >
+                  <FiLogOut /> 
+                  <span>Salir</span>
                 </Button>
               </>
             ) : (
-              <Button variant="outline-light" size="sm" as={NavLink} to='/login'>
-                <FiUser /> Iniciar Sesión
+
+              <Button 
+                variant="outline-light" 
+                size="sm" 
+                as={NavLink} 
+                to='/login'
+                className="d-flex align-items-center justify-content-center gap-2"
+              >
+                <FiUser /> 
+                <span>Iniciar Sesión</span>
               </Button>
             )}
+
             <CartWidget counter={5} />
           </div>
         </Navbar.Collapse>
