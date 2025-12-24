@@ -31,11 +31,13 @@
   color: #ffffff !important;
 }
 
+/* NavLink activo de React Router */
 .nav-link.active {
   color: #ff66cc !important;
   background-color: transparent !important;
 }
 
+/* Dropdown items */
 .dropdown-item {
   color: #ffffff !important;
   background-color: #212529 !important;
@@ -58,6 +60,7 @@
   color: #ff66cc !important;
 }
 
+/* Dropdown menu */
 .dropdown-menu {
   background-color: #212529 !important;
   border: 1px solid #ff66cc;
@@ -97,6 +100,29 @@
   white-space: nowrap;
 }
 
+.custom-navbar .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    flex: 0 0 auto;
+    order: 1;
+}
+
+.navbar-toggler {
+    flex: 0 0 auto;
+    order: 2;
+    margin-left: auto;
+}
+
+.navbar-collapse {
+    flex: 1 1 100%;
+    order: 3;
+}
+
 @media (min-width: 768px) {
   .navbar-side-container {
     flex: 1;
@@ -106,14 +132,51 @@
 
 @media (max-width: 767px) {
   .brand-logo {
-    height: 80px !important; 
+    height: 70px !important; 
   }
   
-  .navbar-side-container {
-    width: 100%;
-    justify-content: center !important;
-    margin-bottom: 15px;
+  .custom-navbar .container-fluid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
   }
+
+  .navbar-brand {
+    order: 1 !important;
+    flex: 0 0 auto !important;
+  }
+
+  .navbar-toggler {
+    order: 2 !important;
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    position: relative;
+  }
+
+  .navbar-toggler:not(.collapsed) {
+    position: relative;
+    z-index: 1050;
+  }
+
+  .navbar-collapse {
+    order: 3 !important;
+    flex-basis: 100% !important;
+    width: 100% !important;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .navbar-collapse .navbar-nav {
+    width: 100%;
+    align-items: center;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    position: relative;
+    width: 100%;
+  }
+}
 
   .nav-col-side {
     width: 100%;
@@ -153,7 +216,6 @@
   .nav-col-side .gap-3 {
     gap: 0.75rem !important;
   }
-}
 
 @media (max-width: 480px) {
   .nav-col-side .btn {
@@ -163,7 +225,15 @@
   }
 
   .brand-logo {
-    height: 70px !important;
+    height: 60px !important;
+  }
+
+  .navbar-brand {
+    padding-right: 1rem;
+  }
+
+  .navbar-toggler {
+    padding-left: 1rem;
   }
 }
 
@@ -188,6 +258,11 @@
   .nav-col-side .btn {
     display: inline-flex;
     width: auto;
+  }
+
+  .brand-logo {
+    height: 80px !important;
+    max-height: 80px;
   }
 }
 

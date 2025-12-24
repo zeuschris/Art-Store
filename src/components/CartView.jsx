@@ -10,7 +10,7 @@ import '../styles/CartView.css';
 const CartView = () => {
     
     const {cart, clear, removeItem, getTotal} = useContext(CartContext)
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -105,11 +105,11 @@ const CartView = () => {
                         <Table striped hover className="align-middle shadow-sm cart-table-desktop">
                             <thead className="table-dark">
                                 <tr>
-                                    <th className="text-center" style={{width: '100px'}}>Imagen</th>
-                                    <th>Producto</th>
-                                    <th className="text-center" style={{width: '120px'}}>Cantidad</th>
-                                    <th className="text-end" style={{width: '130px'}}>Precio Unit.</th>
-                                    <th className="text-end" style={{width: '130px'}}>Subtotal</th>
+                                    <th className="text-center" style={{width: '120px'}}>Imagen</th>
+                                    <th style={{width: '30%'}}>Producto</th>
+                                    <th className="text-center" style={{width: '130px'}}>Cantidad</th>
+                                    <th className="text-end" style={{width: '150px'}}>Precio Unit.</th>
+                                    <th className="text-end" style={{width: '150px'}}>Subtotal</th>
                                     <th className="text-center" style={{width: '120px'}}>Eliminar</th>
                                 </tr>
                             </thead>
