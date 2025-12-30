@@ -53,6 +53,8 @@
   max-width: 450px !important;
   position: relative;
   z-index: 1;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .glass-card {
@@ -316,6 +318,276 @@
   .custom-nav-tabs .nav-link {
     font-size: 14px;
     padding: 8px 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .login-container {
+    padding: 1rem;
+  }
+  
+  .glass-card-container {
+    max-width: 500px !important;
+  }
+  
+  .glass-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 26px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .glass-card-container {
+    max-width: 100% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .glass-card {
+    padding: 2rem 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .custom-nav-tabs .nav-link {
+    font-size: 15px;
+    padding: 10px 16px;
+  }
+  
+  .btn-login,
+  .btn-register,
+  .btn-google {
+    font-size: 15px;
+    padding: 12px !important;
+  }
+  
+  .blur-circle-top {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .blur-circle-bottom {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    padding: 0.5rem;
+  }
+  
+  .glass-card-container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
+  .glass-card {
+    padding: 1.5rem 1rem;
+    margin: 0.5rem auto;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .custom-nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .label {
+    font-size: 13px !important;
+  }
+  
+  .input-field {
+    font-size: 14px !important;
+    padding: 11px 14px !important;
+  }
+  
+  .password-input {
+    padding-right: 42px !important;
+  }
+  
+  .password-toggle-btn {
+    right: 10px;
+  }
+  
+  .password-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .btn-login,
+  .btn-register,
+  .btn-google {
+    font-size: 14px !important;
+    padding: 11px !important;
+  }
+  
+  .btn-google svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .divider {
+    font-size: 13px;
+    margin: 18px 0;
+  }
+  
+  .remember-forgot-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .checkbox-control .form-check-label {
+    font-size: 13px !important;
+  }
+  
+  .link-text {
+    font-size: 13px;
+  }
+  
+  .footer-text {
+    font-size: 13px;
+    margin-top: 1.2rem;
+  }
+  
+  .blur-circle-top {
+    width: 150px;
+    height: 150px;
+    top: -5%;
+  }
+  
+  .blur-circle-bottom {
+    width: 200px;
+    height: 200px;
+    bottom: -5%;
+  }
+
+  .modal-header-custom {
+    padding: 1.2rem !important;
+  }
+  
+  .modal-title-custom {
+    font-size: 1.2rem !important;
+  }
+  
+  .modal-body-custom {
+    padding: 1.5rem !important;
+  }
+  
+  .modal-description {
+    font-size: 13px;
+    margin-bottom: 1.2rem;
+  }
+  
+  .modal-label {
+    font-size: 13px !important;
+  }
+  
+  .modal-input {
+    font-size: 14px !important;
+    padding: 11px 14px !important;
+  }
+  
+  .modal-btn-cancel,
+  .modal-btn-submit {
+    font-size: 14px !important;
+    padding: 10px 16px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .glass-card-container {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+  }
+  
+  .glass-card {
+    padding: 1.2rem 0.8rem;
+    margin: 0.3rem auto;
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  .custom-nav-tabs .nav-link {
+    font-size: 13px;
+    padding: 7px 10px;
+  }
+  
+  .input-field {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+  
+  .btn-login,
+  .btn-register,
+  .btn-google {
+    font-size: 13px !important;
+    padding: 10px !important;
+  }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .login-container {
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .glass-card {
+    margin: 0.5rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .title {
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+  
+  .custom-nav-tabs .nav-link {
+    padding: 6px 12px;
+  }
+  
+  .label {
+    margin-bottom: 4px !important;
+  }
+  
+  .input-field {
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .divider {
+    margin: 12px 0;
+  }
+  
+  .footer-text {
+    margin-top: 1rem;
+  }
+  
+  .blur-circle {
+    display: none;
+  }
+  
+  .star:nth-child(n+26) {
+    display: none;
   }
 }
 
