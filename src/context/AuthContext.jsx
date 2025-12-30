@@ -7,6 +7,10 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
+  sendPasswordResetEmail,
+  setPersistence,           
+  browserSessionPersistence, 
+  browserLocalPersistence    
 } from 'firebase/auth';
 import { auth } from '../service/firebase';
 import { toast } from 'react-toastify';
@@ -81,8 +85,14 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
-  const login = async (email, password) => {
+  const login = async (email, password, rememberMe = false) => {
     try {
+      if (rememberMe) {
+        await setPersistence(auth, browserLocalPersistence);
+      } else {
+        await setPersistence(auth, browserSessionPersistence);
+      }
+      
       const userCredential = await signInWithEmailAndPassword(auth, email, password)
       toast.success('¡Inicio de sesión exitoso!');
       return userCredential.user;
@@ -128,13 +138,45 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  const resetPassword = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email)
+      toast.success('Correo de recuperación enviado. Revisa tu bandeja de entrada.')
+      return true;
+    } catch (error) {
+      let errorMessage = 'Error al enviar correo de recuperación'
+      
+      switch (error.code) {
+        case 'auth/user-not-found':
+          errorMessage = 'No existe una cuenta con este correo electrónico'
+          break
+        case 'auth/invalid-email':
+          errorMessage = 'Correo electrónico inválido'
+          break
+        case 'auth/too-many-requests':
+          errorMessage = 'Demasiados intentos. Por favor, intenta más tarde.'
+          break
+        case 'auth/network-request-failed':
+          errorMessage = 'Error de red. Verifica tu conexión a internet.'
+          break
+        default:
+          errorMessage = `Error: ${error.message}`
+          console.error('Error completo de reset:', error)
+      }
+      
+      toast.error(errorMessage)
+      throw error
+    }
+  }
+
   const value = {
     user,
     loading,
     register,
     login,
     logout,
-    loginWithGoogle
+    loginWithGoogle,
+    resetPassword 
   }
 
   return (
@@ -143,4 +185,3 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   )
 }
-
